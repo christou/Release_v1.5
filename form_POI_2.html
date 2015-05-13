@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	
+        <meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>BIP</title>
+			<meta charset="UTF-8" />
+		
+
+		<!-- Pour le Tooltip N4 -->
+		<link rel="stylesheet" type="text/css" href="doc/css/reset.css" />
+		<link rel="stylesheet" type="text/css" href="doc/css/prettify.css" />
+		<link rel="stylesheet" type="text/css" href="doc/css/style.css" />
+		<link rel="stylesheet" type="text/css" href="css/tooltipster.css" />
+	
+		
+		<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.0.min.js"></script>
+		<script type="text/javascript" src="doc/js/jquery.jgfeed.js"></script>
+		<script type="text/javascript" src="doc/js/prettify.js"></script>
+		<script type="text/javascript" src="doc/js/lang-css.js"></script>
+		<script type="text/javascript" src="doc/js/scripts.js"></script>
+		<script type="text/javascript" src="js/jquery.tooltipster.js"></script>
+
+		        		<!--Tous les css utilisés -->
+		<link rel="stylesheet" href="css/bootstrap.css">  
+		<link rel="stylesheet" href="css/bootstrap-theme.css">
+
+		<link rel="stylesheet" href="css/default.css">
+		<link rel="stylesheet" href="css/jquery.share.css">
+		
+		<link rel="stylesheet" type="text/css" href="css/style.css">  
+		<link rel="stylesheet" type="text/css" href="css/content.css" />
+		<link rel="stylesheet" type="text/css" href="css/rrssb.css" /> 
+       
+    </head>
+	 
+	<!-- /////////////////////////////////////////////////////////////////////// -->		 	    
+	<body ng-app="myApp">
+
+	
+	<!-- Début Barre de menu -->
+	   <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+	      <div class="container-fluid">
+	      		<a class="navbar-brand" href="index.html">MountainBytes</a>
+     			<a class="navbar-brand navbar-right" href="zxing://scan/?ret=http%3A%2F%2Fchristou.github.io/Release_v1.0_FdS%2F%7BCODE%7D">Scan un QR-code</a>
+  		  </div>
+   		</nav>
+		<!-- Fin barre de menu -->
+
+<!-- /////////////////////////////////////////////////////////////////////////////////// -->		
+<!-- ------- forme ------------ -->
+						    
+	<form id="form" class="form-horizontal">
+	<div ng-controller="contentController">
+   	<!---------- Début contenu -------------->
+        <!-- Contenu Master -->
+		<section id="master" class="featured">
+			<div class="container"> 
+				
+				<div class="row mar-bot40">
+				
+					<div class="col-md-12 ">
+	
+					<!-- ------- Début du div pour la forme ------------ -->
+							
+					<!-- ------- Place titre ------------ -->
+					    <div class="form-group">
+					        <label for="inputTitle" class="col-xs-2 control-label">Titre</label>
+					        <div class="col-xs-8">
+					             <input ng-model="lom['lom:lom']['lom:general']['lom:title']['lom:string']['#text']" class="form-control" value="{{ lom['lom:lom']['lom:general']['lom:title']['lom:string']['#text'] }}"></input>
+					             
+							</div>								
+						</div>
+	
+					<!-- ------- Place vidéo ------------ -->
+						 <div class="col-lg-6 video">
+						   	<img ng-src="{{ lom['lom:lom']['lom:general']['lom:description']['lom:associatedPicture']['lom:catalog']}}" width="100%" height="100%"></img>	
+							<div class="form-group">
+								<label for="inputTitle" class="control-label col-xs-2 ">Lien de l'image</label>
+								<div class="col-xs-10">
+									<input class="form-control" ng-model="lom['lom:lom']['lom:general']['lom:description']['lom:associatedPicture']['lom:catalog']" value="{{ lom['lom:lom']['lom:general']['lom:description']['lom:associatedPicture']['lom:catalog'] }}"></input>
+								</div>
+							</div>		  
+                         </div>
+                         
+                    <!-- ------- Place texte master ------------ -->
+						 <div class="col-lg-6 align-justified">
+							 <div class="form-group">
+							    <label for="inputMaster" class="col-sm-2 control-label">Texte Master</label>
+							    <div class="col-sm-10">
+							    	<textarea rows="12" cols="50" wrap="hard" ng-model="lom['lom:lom']['lom:general']['lom:description']['lom:string']['#text'] " value="{{ lom['lom:lom']['lom:general']['lom:description']['lom:string']['#text'] }}" rows="15"></textarea>
+							    </div>
+							 </div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		
+		<!------------- Contenus N2 ------------->
+		<section id="section-services" class="n2">
+		<div class="container"> 
+		
+			<div class="row mar-bot40">
+				<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" >
+					<div class="align-justified">
+						<div class="form-group">
+					        <label for="inputTitleN2" class="control-label col-xs-2">Titre du N2</label>
+					        <div class="col-xs-10">
+							 	<input class="form-control" ng-model="lom['lom:lom']['lom:relation'][0]['lom:resource']['lom:title']['lom:string']['#text']" value="{{ lom['lom:lom']['lom:relation'][0]['lom:resource']['lom:title']['lom:string']['#text'] }}"></input>
+							</div>
+						</div>
+						<div class="english form-group">
+					        <label for="inputTitleN2_en" class="control-label col-xs-2">N2 title</label>
+					        <div class="col-xs-10">
+					            <input class="form-control" id="inputTitleN2_en" placeholder="N2 title in english"></input>
+							</div>
+						</div>			
+						
+						<!-- ////////////////////// -->							
+			        	<img ng-src="{{ lom['lom:lom']['lom:relation'][0]['lom:resource']['lom:description']['lom:associatedPicture']['lom:catalog']}}" width="100%" height="100%"></img>	
+						<div class="form-group">
+							<label for="inputTitle" class="control-label col-xs-2 ">le URL de l'image</label>
+							<div class="col-xs-10">
+								<input class="form-control" ng-model="lom['lom:lom']['lom:relation'][0]['lom:resource']['lom:description']['lom:associatedPicture']['lom:catalog']" value="{{ lom['lom:lom']['lom:relation'][0]['lom:resource']['lom:description']['lom:associatedPicture']['lom:catalog'] }}"></input>
+							</div>
+						</div>
+						<!-- ////////////////////// -->		
+							
+						
+						<div class="form-group">
+					        <label for="inputDescriptionN2" class="control-label col-xs-2">Description du N2</label>
+					        <div class="col-xs-10">
+							 	<textarea class="form-control" ng-model="lom['lom:lom']['lom:relation'][0]['lom:resource']['lom:description']['lom:string']['#text']" value="{{ lom['lom:lom']['lom:relation'][0]['lom:resource']['lom:description']['lom:string']['#text'] }}"></textarea>
+							</div>
+						</div>
+						<div class="english form-group">
+					        <label for="inputDescriptionN2_en" class="control-label col-xs-2">N2 description</label>
+					        <div class="col-xs-10">
+					            <textarea class="form-control" id="inputDescriptionN2_en" placeholder="N2 description in english"></textarea>
+							</div>
+						</div>		
+						
+					</div>
+				</div>
+					
+				<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" >
+					<div class="align-justified">
+						<div class="form-group">
+					        <label for="inputTitleN2" class="control-label col-xs-2">Titre du N2</label>
+					        <div class="col-xs-10">
+							 	<input class="form-control" ng-model="lom['lom:lom']['lom:relation'][1]['lom:resource']['lom:title']['lom:string']['#text']" value="{{ lom['lom:lom']['lom:relation'][1]['lom:resource']['lom:title']['lom:string']['#text'] }}"></input>
+							</div>
+						</div>
+						<div class="english form-group">
+					        <label for="inputTitleN2_en" class="control-label col-xs-2">N2 title</label>
+					        <div class="col-xs-10">
+					            <input type="titleN2_en" class="form-control" id="inputTitleN2_en" placeholder="N2 title in english"></input>
+							</div>
+						</div>
+						<!-- ////////////////////// -->															
+						<img ng-src="{{ lom['lom:lom']['lom:relation'][1]['lom:resource']['lom:description']['lom:associatedPicture']['lom:catalog'] }}" width="100%" height="100%"></img>			
+						<div class="form-group">
+							<label for="inputTitle" class="control-label col-xs-2">le URL de l'image</label>
+							<div class="col-xs-10">
+								<input class="form-control col-xs-10" ng-model="lom['lom:lom']['lom:relation'][1]['lom:resource']['lom:description']['lom:associatedPicture']['lom:catalog']" value="{{ lom['lom:lom']['lom:relation'][1]['lom:resource']['lom:description']['lom:associatedPicture']['lom:catalog'] }}"></input>
+							</div>
+						</div>
+						<!-- ////////////////////// -->		
+						
+						<div class="form-group">
+					        <label for="inputDescriptionN2" class="control-label col-xs-2">Description du N2</label>
+					        <div class="col-xs-10">
+					            <textarea class="form-control" ng-model="lom['lom:lom']['lom:relation'][1]['lom:resource']['lom:description']['lom:string']['#text']" value="{{ lom['lom:lom']['lom:relation'][1]['lom:resource']['lom:description']['lom:string']['#text'] }}"></textarea>
+							</div>
+						</div>
+						<div class="english form-group">
+					        <label for="inputDescriptionN2_en" class="control-label col-xs-2">N2 description</label>
+					        <div class="col-xs-10">
+					            <textarea class="form-control" id="inputDescriptionN2_en" placeholder="N2 description in english"></textarea>
+							</div>
+						</div>		
+						
+					</div>
+				</div>
+			</div>	
+		</div>
+		</section>
+	
+		
+		<!-------------- Contenus N3 ------------>
+		<section id="section-services" class="n3">
+		<div class="container"> 
+		
+			<div class="row mar-bot40">
+				<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" >
+					<div class="align-justified">
+						<div class="form-group">
+					        <label for="inputTitleN3" class="control-label col-xs-2">Titre du N3</label>
+					        <div class="col-xs-10">
+							 	<input class="form-control" ng-model="lom['lom:lom']['lom:relation'][2]['lom:resource']['lom:title']['lom:string']['#text']" value="{{ lom['lom:lom']['lom:relation'][2]['lom:resource']['lom:title']['lom:string']['#text'] }}"></input>
+							</div>
+						</div>
+						<div class="english form-group">
+					        <label for="inputTitleN3_en" class="control-label col-xs-2">N3 title</label>
+					        <div class="col-xs-10">
+					            <input class="form-control" id="inputTitleN3_en" placeholder="N3 title in english"></input>
+							</div>
+						</div>			
+						
+						<!-- ////////////////////// -->							
+			        	<img ng-src="{{ lom['lom:lom']['lom:relation'][2]['lom:resource']['lom:description']['lom:associatedPicture']['lom:catalog']}}" width="100%" height="100%"></img>	
+						<div class="form-group">
+							<label for="inputTitle" class="control-label col-xs-2 ">le URL de l'image</label>
+							<div class="col-xs-10">
+								<input class="form-control" ng-model="lom['lom:lom']['lom:relation'][2]['lom:resource']['lom:description']['lom:associatedPicture']['lom:catalog']" value="{{ lom['lom:lom']['lom:relation'][2]['lom:resource']['lom:description']['lom:associatedPicture']['lom:catalog'] }}"></input>
+							</div>
+						</div>
+						<!-- ////////////////////// -->		
+							
+						
+						<div class="form-group">
+					        <label for="inputDescriptionN3" class="control-label col-xs-2">Description du N3</label>
+					        <div class="col-xs-10">
+							 	<textarea class="form-control" ng-model="lom['lom:lom']['lom:relation'][2]['lom:resource']['lom:description']['lom:string']['#text']" value="{{ lom['lom:lom']['lom:relation'][2]['lom:resource']['lom:description']['lom:string']['#text'] }}"></textarea>
+							</div>
+						</div>
+						<div class="english form-group">
+					        <label for="inputDescriptionN3_en" class="control-label col-xs-2">N3 description</label>
+					        <div class="col-xs-10">
+					            <textarea class="form-control" id="inputDescriptionN3_en" placeholder="N3 description in english"></textarea>
+							</div>
+						</div>		
+						
+					</div>
+				</div>
+					
+				<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" >
+					<div class="align-justified">
+						<div class="form-group">
+					        <label for="inputTitleN3" class="control-label col-xs-2">Titre du N3</label>
+					        <div class="col-xs-10">
+							 	<input class="form-control" ng-model="lom['lom:lom']['lom:relation'][3]['lom:resource']['lom:title']['lom:string']['#text']" value="{{ lom['lom:lom']['lom:relation'][3]['lom:resource']['lom:title']['lom:string']['#text'] }}"></input>
+							</div>
+						</div>
+						<div class="english form-group">
+					        <label for="inputTitleN3_en" class="control-label col-xs-2">N3 title</label>
+					        <div class="col-xs-10">
+					            <input type="titleN3_en" class="form-control" id="inputTitleN3_en" placeholder="N3 title in english"></input>
+							</div>
+						</div>
+						<!-- ////////////////////// -->															
+						<img ng-src="{{ lom['lom:lom']['lom:relation'][3]['lom:resource']['lom:description']['lom:associatedPicture']['lom:catalog'] }}" width="100%" height="100%"></img>			
+						<div class="form-group">
+							<label for="inputTitle" class="control-label col-xs-2">le URL de l'image</label>
+							<div class="col-xs-10">
+								<input class="form-control col-xs-10" ng-model="lom['lom:lom']['lom:relation'][3]['lom:resource']['lom:description']['lom:associatedPicture']['lom:catalog']" value="{{ lom['lom:lom']['lom:relation'][3]['lom:resource']['lom:description']['lom:associatedPicture']['lom:catalog'] }}"></input>
+							</div>
+						</div>
+						<!-- ////////////////////// -->		
+						
+						<div class="form-group">
+					        <label for="inputDescriptionN3" class="control-label col-xs-2">Description du N3</label>
+					        <div class="col-xs-10">
+					            <textarea class="form-control" ng-model="lom['lom:lom']['lom:relation'][3]['lom:resource']['lom:description']['lom:string']['#text']" value="{{ lom['lom:lom']['lom:relation'][3]['lom:resource']['lom:description']['lom:string']['#text'] }}"></textarea>
+							</div>
+						</div>
+						<div class="english form-group">
+					        <label for="inputDescriptionN3_en" class="control-label col-xs-2">N3 description</label>
+					        <div class="col-xs-10">
+					            <textarea class="form-control" id="inputDescriptionN3_en" placeholder="N3 description in english"></textarea>
+							</div>
+						</div>		
+						
+					</div>
+				</div>
+			</div>	
+		</div>
+
+		</section>
+		
+		<!-------------- Contenus N4 ------------>
+
+		<section id="demos">
+		
+			<ul>
+				<li>
+					<span id="demo-interact" title="&lt;a href='#' &gt;Click&lt;/a&gt;">savoir+</span> 
+					<input class="form-control" ng-model="lom['lom:lom']['lom:relation'][4]['lom:resource']['lom:description']['lom:string']['#text']" 
+														value="{{ lom['lom:lom']['lom:relation'][4]['lom:resource']['lom:description']['lom:string']['#text'] }}"></input>		
+				</li>
+				<li>
+					<span id="demo-interact" title="&lt;a href='#' &gt;Click&lt;/a&gt;">savoir+</span> 
+					<input class="form-control" ng-model="lom['lom:lom']['lom:relation'][5]['lom:resource']['lom:description']['lom:string']['#text']" 
+														value="{{ lom['lom:lom']['lom:relation'][5]['lom:resource']['lom:description']['lom:string']['#text'] }}"></input>		
+				</li>
+				<li>
+					<span id="demo-interact" title="&lt;a href='#' &gt;Click&lt;/a&gt;">savoir+</span> 
+					<input class="form-control" ng-model="lom['lom:lom']['lom:relation'][6]['lom:resource']['lom:description']['lom:string']['#text']" 
+														value="{{ lom['lom:lom']['lom:relation'][6]['lom:resource']['lom:description']['lom:string']['#text'] }}"></input>		
+				</li>
+				<li>
+					<span id="demo-interact" title="&lt;a href='#' &gt;Click&lt;/a&gt;">savoir+</span> 
+					<input class="form-control" ng-model="lom['lom:lom']['lom:relation'][7]['lom:resource']['lom:description']['lom:string']['#text']" 
+														value="{{ lom['lom:lom']['lom:relation'][7]['lom:resource']['lom:description']['lom:string']['#text'] }}"></input>		
+				</li>
+			</ul>
+			    
+
+		</section>
+
+		<!-- DOWNLOAD FORM BUTTON-->	
+	
+		<section id="blockquote footer" class="panel-footer">
+			<div class="container">
+				<div class="row animated opacity mar-bot20 col-sm-12 align-center" >
+			    <button ng-click="save()">Save</button>
+			    <p>{{msg}}</p>
+				</div>
+			</div>
+		</section>
+
+	</div>
+
+	</form>
+<!-- ----------------------FIN DIV ANGULAR------------------------------------------- -->	
+	<a href="#header" class="scrollup"><i class="fa fa-chevron-up"></i></a>	
+
+		
+<!-- tous les scipts utilisés -->
+
+	<script src="js/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+	<script src="js/jquery.easing.1.3.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+	<script src="js/jquery.isotope.min.js"></script>
+	<script src="js/jquery.nicescroll.min.js"></script>
+
+	<script src="js/skrollr.min.js"></script>		
+	<script src="js/jquery.scrollTo-1.4.3.1-min.js"></script>
+	<script src="js/jquery.localscroll-1.2.7-min.js"></script>
+	<script src="js/stellar.js"></script>
+	<script src="js/jquery.appear.js"></script>
+	<script src="js/purl.js"></script>	
+	
+	<script src="js/snap.svg-min.js"></script>
+	<script src="js/modernizr.custom.js"></script>
+	<script type="text/javascript" src="js/jquery.leanModal.min.js"></script>  
+	<script src="js/classie.js"></script>
+	<!-- script des buttons des réseaux sociaux avec Sharrre -->
+	<script src="js/rrssb.min.js"></script>
+
+	<script src="bower_components/angular/angular.min.js"></script>
+	<script src="bower_components/angular-sanitize/angular-sanitize.min.js"></script>
+
+	<script src="js/main.js"></script>
+	
+
+
+
+	<script>
+	
+	////////////////////////////////////////////// ANGULAR
+	var app = angular.module('myApp', [
+	               					"ngSanitize"
+	            					]);
+
+   
+	app.controller('contentController', function($http, $scope) { 
+		
+	  $http.get('json/' + $.url(document.location).param('id')).
+	    success(function(data) {
+	      console.log(data); 	
+	      $scope.lom = data;
+	    }).
+	    error(function(data) {
+	      // log error
+	    });
+	  
+	  $scope.save = function() {
+		    $scope.msg = JSON.stringify($scope.lom);
+		  };
+	});
+
+	</script>
+	
+
+  </body>
+</html>
